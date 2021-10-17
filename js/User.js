@@ -1,5 +1,5 @@
 /* User.js
-  
+  HTML-code to represent a "User-object"
 
 */
 
