@@ -22,6 +22,7 @@ async function getAllAsync() {
   //inside async function we can wait for promises
   const result = await fetch(url);
   const data = await result.json();
+  console.log('Get All async', data);
   return data;
 }
 
@@ -58,7 +59,7 @@ function getChainFetchArrow() {
   return result;
 }
 
-//chain of async ajax calls with async/await for consuming promises.
+//chain of async ajax calls with async/await for consuming promises. Must be more than 1 user.
 async function getChainAsync() {
   try {
     const allUsers = await fetch(url);
@@ -78,5 +79,5 @@ console.log('third');
 console.log(returnedValue);
 getChainAsync().then(
   (result) => console.log(result),
-  (err) => console.log(`oh no! ${err.message}`)
+  (err) => console.log(`Oh no! ${err.message}`)
 );
