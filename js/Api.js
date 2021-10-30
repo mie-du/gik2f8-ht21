@@ -71,12 +71,12 @@ async function getChainAsync() {
     throw err;
   }
 }
-
 //async function will run when it's done. First and third will be written out first, even though the function call is in the middle.
 console.log('first');
 const returnedValue = getChainAsync();
 console.log('third');
 console.log(returnedValue);
+
 getChainAsync().then(
   (result) => console.log(result),
   (err) => console.log(`Oh no! ${err.message}`)
