@@ -2,11 +2,11 @@
   Code for general CRUD-operations with promises.
   Generally written (not necesarily users)
 */
-const url = 'https://rest-small.herokuapp.com/users';
+const url = 'https://rest-small.herokuapp.com/users/';
 
 //get object by ID
 function get(id) {
-  return fetch(`${url}/${id}`);
+  return fetch(`${url}${id}`);
 }
 
 //Get All, converted to JSON for cleanest possible result to work with
@@ -22,8 +22,16 @@ function getAllJSON() {
 }
 //create
 function create(data) {
-  return fetch(`${url}/${id}`, { method: 'POST' });
+  console.log(JSON.stringify(data));
+  fetch(`${url}`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
 }
+
 //update
 function update(data) {
   return fetch(`${url}/${id}`, { method: 'PUT' });

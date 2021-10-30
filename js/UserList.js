@@ -9,6 +9,5 @@ getAllJSON().then((users) => {
   users.map((user) => {
     userList += renderUser(user);
   });
-  console.log(userList);
   container.insertAdjacentHTML('afterbegin', userList);
 });
