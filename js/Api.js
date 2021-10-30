@@ -20,15 +20,3 @@ function getAllJSON() {
 
   return result;
 }
-//create
-function create(data) {
-  return fetch(`${url}/${id}`, { method: 'POST' });
-}
-//update
-function update(data) {
-  return fetch(`${url}/${id}`, { method: 'PUT' });
-}
-//delete
-function remove(data) {
-  return fetch(`${url}/${id}`, { method: 'DELETE' });
-}
