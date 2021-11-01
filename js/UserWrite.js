@@ -11,6 +11,7 @@ if (userId) {
     form.email.value = data.email;
     form.f_name.value = data.f_name;
     form.l_name.value = data.l_name;
+    form.presentation.value = data.presentation;
   });
 }
 
