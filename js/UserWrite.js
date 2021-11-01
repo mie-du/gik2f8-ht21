@@ -29,6 +29,7 @@ function updateUser(event) {
     console.dir(data);
     update(data);
   } else {
+    console.log(data);
     create(data);
   }
 
