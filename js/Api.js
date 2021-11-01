@@ -6,11 +6,6 @@
 //https://rest-large.herokuapp.com/docs/
 const url = 'https://rest-small.herokuapp.com/users';
 
-//get object by ID
-function getById(id) {
-  return fetch(`${url}/${id}`);
-}
-
 //Get All, converted to JSON for cleanest possible result to work with
 function getAllJSON() {
   const result = fetch(url).then((response) => response.json());
