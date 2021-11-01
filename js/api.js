@@ -4,11 +4,6 @@
 */
 const url = 'https://rest-small.herokuapp.com/users/';
 
-//get object by ID
-function get(id) {
-  return fetch(`${url}${id}`);
-}
-
 //Get All, converted to JSON for cleanest possible result to work with
 function getAllJSON() {
   //first response returns data stream, needs to be converted to json.
