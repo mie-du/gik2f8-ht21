@@ -70,6 +70,7 @@ async function getChainAsync() {
   } catch (err) {
     throw err;
   }
+}
 
 //create
 function create(data) {
