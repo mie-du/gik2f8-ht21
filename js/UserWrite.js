@@ -19,19 +19,22 @@ function updateUser(event) {
   event.preventDefault();
   //optional validation
 
+  /* Fetching known data from form */
   const data = {
     email: form.email.value,
     f_name: form.f_name.value,
     l_name: form.l_name.value
   };
   if (userId) {
+    /* If we're updating, fetch more data and include id */
     data.id = userId;
     data.presentation = form.presentation.value;
-    console.dir(data);
+
     update(data);
   } else {
+    /* If creating, just pass along basic form info */
     create(data);
   }
-
+  //Redirect to list of users when done.
   window.location.href = '/read.html';
 }
