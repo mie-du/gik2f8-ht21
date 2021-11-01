@@ -48,3 +48,15 @@ function update(data) {
     body: JSON.stringify(data)
   });
 }
+
+//delete
+function remove(data) {
+  console.log(JSON.stringify(data));
+  fetch(`${url}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+}
