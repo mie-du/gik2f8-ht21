@@ -21,9 +21,11 @@ function updateUser(event) {
 
   /* Fetching known data from form */
   const data = {
+    id: '',
     email: form.email.value,
     f_name: form.f_name.value,
-    l_name: form.l_name.value
+    l_name: form.l_name.value,
+    presentation: ''
   };
   if (userId) {
     /* If we're updating, fetch more data and include id */
