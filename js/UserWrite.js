@@ -7,7 +7,7 @@ const userId = urlParams.get('id');
 let form = document.querySelector('.create__form');
 
 if (userId) {
-  get(userId).then((data) => {
+  getById(userId).then((data) => {
     form.email.value = data.email;
     form.f_name.value = data.f_name;
     form.l_name.value = data.l_name;
