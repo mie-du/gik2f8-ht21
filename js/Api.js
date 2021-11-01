@@ -70,6 +70,26 @@ async function getChainAsync() {
   } catch (err) {
     throw err;
   }
+
+//create
+function create(data) {
+  console.log(JSON.stringify(data));
+  fetch(`${url}`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+}
+
+//update
+function update(data) {
+  return fetch(`${url}/${id}`, { method: 'PUT' });
+}
+//delete
+function remove(data) {
+  return fetch(`${url}/${id}`, { method: 'DELETE' });
 }
 //async function will run when it's done. First and third will be written out first, even though the function call is in the middle.
 console.log('first');
