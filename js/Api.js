@@ -6,7 +6,13 @@ const url = 'https://rest-small.herokuapp.com/users/';
 
 //get object by ID
 function get(id) {
-  return fetch(`${url}${id}`);
+  const result = fetch(`${url}${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+
+  return result;
 }
 
 //Get All, converted to JSON for cleanest possible result to work with
@@ -22,7 +28,6 @@ function getAllJSON() {
 }
 //create
 function create(data) {
-  console.log(JSON.stringify(data));
   fetch(`${url}`, {
     method: 'POST',
     headers: {
@@ -34,9 +39,12 @@ function create(data) {
 
 //update
 function update(data) {
-  return fetch(`${url}/${id}`, { method: 'PUT' });
-}
-//delete
-function remove(data) {
-  return fetch(`${url}/${id}`, { method: 'DELETE' });
+  console.log(JSON.stringify(data));
+  fetch(`${url}`, {
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
 }
