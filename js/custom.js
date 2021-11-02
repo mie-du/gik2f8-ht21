@@ -1,12 +1,12 @@
-const currentURL = window.location.href;
-const arr = currentURL.split("/");
-const host = arr[0] + "//" + arr[2];
-const baseURL = host.concat("/");
+const currentURL = window.location.href.split('?')[0];
+const arr = currentURL.split('/');
+const host = arr[0] + '//' + arr[2];
+const baseURL = host.concat('/');
 
-const createURL = baseURL.concat("create.html")
-const readURL = baseURL.concat("read.html")
-const updateURL = baseURL.concat("update.html")
-const deleteURL = baseURL.concat("delete.html")
+const createURL = baseURL.concat('create.html');
+const readURL = baseURL.concat('read.html');
+const updateURL = baseURL.concat('update.html');
+const deleteURL = baseURL.concat('delete.html');
 
 const header_and_nav = `
                         <header class="page__header page__header--bg py-5">
@@ -38,24 +38,24 @@ const header_and_nav = `
                         </nav>
                         `;
 
-const body = document.querySelector("body");
-body.insertAdjacentHTML("afterbegin", header_and_nav);
+const body = document.querySelector('body');
+body.insertAdjacentHTML('afterbegin', header_and_nav);
 
-let create = document.querySelector("span.create");
-let read = document.querySelector("span.read");
-let update = document.querySelector("span.update");
-let del = document.querySelector("span.delete");
+let create = document.querySelector('span.create');
+let read = document.querySelector('span.read');
+let update = document.querySelector('span.update');
+let del = document.querySelector('span.delete');
 
 if (currentURL == createURL) {
-    create.classList.add("clr-6");
+  create.classList.add('clr-6');
 } else if (currentURL == readURL) {
-    read.classList.add("clr-6");
+  read.classList.add('clr-6');
 } else if (currentURL == updateURL) {
-    update.classList.add("clr-6");
+  update.classList.add('clr-6');
 } else if (currentURL == deleteURL) {
-    del.classList.add("clr-6");
+  del.classList.add('clr-6');
 } else {
-    console.log("Well, what's up!?")
+  console.log("Well, what's up!?");
 }
 
 const headerSVG = `
@@ -206,11 +206,11 @@ const pageFooter = `
                 </footer>
                 `;
 
-const pageHeader = document.querySelector(".page__header");
-const headerLogo = document.querySelector(".logo");
-const pageMain = document.querySelector("main");
+const pageHeader = document.querySelector('.page__header');
+const headerLogo = document.querySelector('.logo');
+const pageMain = document.querySelector('main');
 
-pageHeader.insertAdjacentHTML("beforeend", headerSVG);
-headerLogo.insertAdjacentHTML("afterbegin", restSVG);
-pageMain.insertAdjacentHTML("afterbegin", mainSVG);
-pageMain.insertAdjacentHTML("afterend", pageFooter);
+pageHeader.insertAdjacentHTML('beforeend', headerSVG);
+headerLogo.insertAdjacentHTML('afterbegin', restSVG);
+pageMain.insertAdjacentHTML('afterbegin', mainSVG);
+pageMain.insertAdjacentHTML('afterend', pageFooter);
