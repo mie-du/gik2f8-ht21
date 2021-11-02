@@ -19,7 +19,7 @@ function renderUser(user) {
       </div>
       <div class="card-body">
           <h5 class="card-title card-title-razzmatazz">${user.f_name} ${user.l_name}</h5>
-          <p class="card-text">${presentation}</p>
+          <p class="card-text">${user.presentation}</p>
       </div>
       <p class="card-text card-email card-email-persian-green"><a href="mailto:${user.email}" title="Mejla ${user.f_name} ${user.l_name}">${user.email}</a></p>
   </li>
