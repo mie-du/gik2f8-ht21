@@ -1,4 +1,4 @@
-const currentURL = window.location.href;
+const currentURL = window.location.href.split('?')[0];
 const arr = currentURL.split('/');
 const host = arr[0] + '//' + arr[2];
 const baseURL = host.concat('/');
