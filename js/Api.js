@@ -7,11 +7,14 @@ const url = 'https://rest-small.herokuapp.com/users';
 //Get All, converted to JSON for cleanest possible result to work with
 function getAllJSON() {
   //first response returns data stream, needs to be converted to json.
-  fetch(url)
+  const result = fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      return data;
     });
+  return result;
 }
 
-getAllJSON();
+getAllJSON().then((users) => {
+  console.log(users);
+});
