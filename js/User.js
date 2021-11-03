@@ -6,7 +6,8 @@
 function renderUser(user) {
   return `
   <li class="card card-catalina-blue text-dark">
-      <a class="card-link card-link-catalina-blue" href="./update.html?id=${user.id}"><span title="Uppdatera ${f_name} ${l_name}">Uppdatera</span></a>
+      <a class="card-link card-link-catalina-blue" href="./update.html?id=${user.id}">
+      <span title="Uppdatera ${user.f_name} ${user.l_name}">Uppdatera</span></a>
       <span class="card-border card-border-left card-border-left-catalina-blue"></span>              
       <span class="card-border card-border-top card-border-top-catalina-blue"></span>
       <span class="card-border card-border-right card-border-right-catalina-blue"></span>
@@ -21,7 +22,7 @@ function renderUser(user) {
           <h5 class="card-title card-title-razzmatazz">${user.f_name} ${user.l_name}</h5>
           <p class="card-text">${user.presentation}</p>
       </div>
-      <p class="card-text card-email card-email-persian-green"><a href="mailto:${user.email}" title="Mejla ${f_name} ${l_name}">${email}</a></p>
+      <p class="card-text card-email card-email-persian-green"><a href="mailto:${user.email}" title="Mejla ${user.f_name} ${user.l_name}">${user.email}</a></p>
   </li>
 `;
 }

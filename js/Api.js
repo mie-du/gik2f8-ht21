@@ -14,7 +14,3 @@ function getAllJSON() {
     });
   return result;
 }
-
-getAllJSON().then((users) => {
-  console.log(users);
-});
