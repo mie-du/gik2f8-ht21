@@ -14,3 +14,8 @@ function getAllJSON() {
     });
   return result;
 }
+
+//handle generic result as app specific result
+getAllJSON.then((users) => {
+  console.log(users);
+});
