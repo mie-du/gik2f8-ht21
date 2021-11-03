@@ -4,10 +4,6 @@
 */
 
 function renderUser({ id, email, f_name, l_name, presentation }) {
-  if (presentation.length > 85) {
-    presentation = presentation.substring(0, 85).concat('...');
-  }
-
   return `
   <li class="card card-catalina-blue text-dark">
       <a class="card-link card-link-catalina-blue" href="./update.html?id=${id}"><span title="Uppdatera ${f_name} ${l_name}">Uppdatera</span></a>
