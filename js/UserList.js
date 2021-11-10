@@ -1,13 +1,15 @@
 /* UserList.js
   Code for rendering a list of Users.
+  
 */
+const userContainer = document.querySelector('ul.gallery');
 
-const container = document.querySelector('ul.gallery');
-let userList = '';
-//returns a promise - placeholder of future result of async operation
 getAllJSON().then((users) => {
-  users.map((user) => {
-    userList += renderUser(user);
+  //loop through the array of users
+  users.forEach((user) => {
+    //for each user, call render user and send the current user
+    const userHTML = renderUser(user);
+    //add the HTML for the current user into the existing userContainer.
+    userContainer.insertAdjacentHTML('beforeend', userHTML);
   });
-  container.insertAdjacentHTML('afterbegin', userList);
 });

@@ -2,14 +2,13 @@
   HTML-code to represent a "User-object"
 
 */
+const formElement = document.querySelector('form.create__form');
 
 function renderUser(user) {
-  let presentation = user.presentation;
-  if (presentation.length > 85)
-    presentation = presentation.substring(0, 85).concat('...');
   return `
   <li class="card card-catalina-blue text-dark">
-      <a class="card-link card-link-catalina-blue" data-user="${user.id}" href="./update.html"><span title="Uppdatera ${user.f_name} ${user.l_name}">Uppdatera</span></a>
+      <a class="card-link card-link-catalina-blue" href="./update.html?id=${user.id}">
+      <span title="Uppdatera ${user.f_name} ${user.l_name}">Uppdatera</span></a>
       <span class="card-border card-border-left card-border-left-catalina-blue"></span>              
       <span class="card-border card-border-top card-border-top-catalina-blue"></span>
       <span class="card-border card-border-right card-border-right-catalina-blue"></span>
@@ -22,9 +21,32 @@ function renderUser(user) {
       </div>
       <div class="card-body">
           <h5 class="card-title card-title-razzmatazz">${user.f_name} ${user.l_name}</h5>
-          <p class="card-text">${presentation}</p>
+          <p class="card-text">${user.presentation}</p>
       </div>
       <p class="card-text card-email card-email-persian-green"><a href="mailto:${user.email}" title="Mejla ${user.f_name} ${user.l_name}">${user.email}</a></p>
   </li>
 `;
+}
+
+function createUser(event) {
+  event.preventDefault();
+  //när vi klickar på knappen "Create"
+  //hämta data från fält
+  //skapa user objekt
+  const user = {
+    f_name: formElement.f_name.value,
+    l_name: formElement.l_name.value,
+    email: formElement.email.value
+  };
+
+  //anropa api-function create och skicka med objektet.
+  create(user)
+    .then((result) => {
+      console.log(result);
+      //dirigera användaren till read
+      window.location.href = '/read.html';
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }

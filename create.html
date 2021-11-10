@@ -21,12 +21,12 @@
                class="display-5 text-lowercase clr-3">Post</small></h1>
       <form class="create__form col-lg-7">
         <label class="mt-3 fo" for="f_name">First name</label>
-        <input type="text" class="form-control" id="f_name" value="" placeholder="...">
+        <input type="text" class="form-control" id="f_name" value="" placeholder="Enter first name">
         <label class="mt-3" for="l_name">Last name</label>
         <input type="text" class="form-control" id="l_name" value="" placeholder="...">
         <label class="mt-3" for="email">Email</label>
         <input type="email" class="form-control" id="email" value="" placeholder="...">
-        <button class="btn btn-primary mt-4 float-right" type="submit" onclick="addUser(event);">Create</button>
+        <button onclick="createUser(event);" class="btn btn-primary mt-4 float-right" type="submit">Create</button>
       </form>
     </div>
   </main>
@@ -35,7 +35,7 @@
           crossorigin="anonymous"></script>
   <script src="./js/custom.js"></script>
   <script src="./js/api.js"></script>
-  <script src="./js/UserAdd.js"></script>
+  <script src="./js/User.js"></script>
 
 </body>
 

@@ -2,8 +2,9 @@
   Code for general CRUD-operations with promises.
   Generally written (not necesarily users)
 */
-const url = 'https://rest-small.herokuapp.com/users/';
+const url = 'https://rest-small.herokuapp.com/users';
 
+//R=GET
 //Get All, converted to JSON for cleanest possible result to work with
 function getAllJSON() {
   //first response returns data stream, needs to be converted to json.
@@ -15,14 +16,21 @@ function getAllJSON() {
 
   return result;
 }
-//create
+
+//C=POST
 function create(data) {
-  console.log(JSON.stringify(data));
-  fetch(`${url}`, {
+  const JSONData = JSON.stringify(data);
+  console.log(JSONData);
+  const result = fetch(url, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSONData
   });
+
+  return result;
 }
+
+//U=PUT
+//D=DELETE
