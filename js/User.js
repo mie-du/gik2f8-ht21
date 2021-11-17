@@ -60,28 +60,3 @@ function createUser(event) {
       console.log(error);
     });
 }
-
-function updateUser(event) {
-  //prevent default behavior of the submit button (reload page)
-  event.preventDefault();
-  //create user object from values in the form's input fields.
-  const user = {
-    id: userId,
-    f_name: formElement.f_name.value,
-    l_name: formElement.l_name.value,
-    email: formElement.email.value,
-    presentation: formElement.presentation.value
-  };
-
-  //call the api-function "update" and pass along the user object.
-  update(user)
-    .then((result) => {
-      console.log(result);
-      //if all went well, redirect to read.html
-      window.location.href = '/read.html';
-    })
-    .catch((error) => {
-      //if something went wrong, print out the error.
-      console.log(error);
-    });
-}
