@@ -4,27 +4,12 @@
 */
 const userContainer = document.querySelector('ul.gallery');
 
-const container = document.querySelector('ul.gallery');
-let userList = '';
-//function getAllJSON from Api.js. Api.js has encapsulated the api-communication, gui does not need to know.
-//returns a promise - placeholder of future result of async operation
-//2 arguments to the then-method, callback functions for first success, then failure, then finally (always called, regardless of success or failure).
-/* getAllJSON().then(
-  (users) => {
-    users.map((user) => {
-      userList += renderUser(user);
-    });
-    container.insertAdjacentHTML('afterbegin', userList);
-  },
-  (err) => console.log(`Oh no! ${err}`)
-); */
-
-getAllAsync().then(
-  (users) => {
-    users.map((user) => {
-      userList += renderUser(user);
-    });
-    container.insertAdjacentHTML('afterbegin', userList);
-  },
-  (err) => console.log(`Oh no! ${err}`)
-);
+getAllJSON().then((users) => {
+  //loop through the array of users
+  users.forEach((user) => {
+    //for each user, call render user and send the current user
+    const userHTML = renderUser(user);
+    //add the HTML for the current user into the existing userContainer.
+    userContainer.insertAdjacentHTML('beforeend', userHTML);
+  });
+});
