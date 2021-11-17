@@ -18,6 +18,8 @@ function getAllJSON() {
 }
 
 //C=POST
+//Send object to api for creation.
+//Returns the response, which contains information about the created object.
 function create(data) {
   const JSONData = JSON.stringify(data);
   console.log(JSONData);

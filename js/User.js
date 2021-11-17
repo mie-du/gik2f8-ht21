@@ -29,24 +29,23 @@ function renderUser(user) {
 }
 
 function createUser(event) {
+  //prevent default behavior of the submit button (reload page)
   event.preventDefault();
-  //när vi klickar på knappen "Create"
-  //hämta data från fält
-  //skapa user objekt
+  //create user object from values in the form's input fields.
   const user = {
     f_name: formElement.f_name.value,
     l_name: formElement.l_name.value,
     email: formElement.email.value
   };
 
-  //anropa api-function create och skicka med objektet.
+  //call the api-function "create" and pass along the user object.
   create(user)
     .then((result) => {
-      console.log(result);
-      //dirigera användaren till read
+      //if all went well, redirect to read.html
       window.location.href = '/read.html';
     })
     .catch((error) => {
+      //if something went wrong, print out the error.
       console.log(error);
     });
 }
