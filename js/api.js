@@ -2,19 +2,9 @@
   Code for general CRUD-operations with promises.
   Generally written (not necesarily users)
 */
-const url = 'https://rest-small.herokuapp.com/users/';
+const url = 'https://rest-small.herokuapp.com/users';
 
-//get object by ID
-function getById(id) {
-  const result = fetch(`${url}${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-      return data;
-    });
-
-  return result;
-}
-
+//R=GET
 //Get All, converted to JSON for cleanest possible result to work with
 function getAllJSON() {
   //first response returns data stream, needs to be converted to json.
@@ -26,37 +16,61 @@ function getAllJSON() {
 
   return result;
 }
-//create
+function getById(id) {
+  const completeUrl = `${url}/${id}`;
+
+  const result = fetch(completeUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+
+  return result;
+}
+
+//C=POST
+//Send object to api for creation.
+//Returns the response, which contains information about the created object.
 function create(data) {
-  fetch(`${url}`, {
+  const JSONData = JSON.stringify(data);
+  console.log(JSONData);
+  const result = fetch(url, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSONData
   });
+
+  return result;
 }
 
-//update
+//U=PUT
 function update(data) {
-  console.log(JSON.stringify(data));
-  fetch(`${url}`, {
+  const JSONData = JSON.stringify(data);
+  console.log(JSONData);
+  const result = fetch(url, {
     method: 'PUT',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSONData
   });
+
+  return result;
 }
 
-//delete
+//D=DELETE
 function remove(data) {
-  console.log(JSON.stringify(data));
-  fetch(`${url}`, {
+  const JSONData = JSON.stringify(data);
+  console.log(JSONData);
+  const result = fetch(url, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSONData
   });
+
+  return result;
 }
