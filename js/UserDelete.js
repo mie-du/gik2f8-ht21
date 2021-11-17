@@ -1,20 +1,34 @@
-/* UserDelete.js
-  Code for populating dropdown with user and functionality to delete the selected one.  */
-
-const select = document.querySelector('#user');
+const userList = document.getElementById('user');
 
 getAllJSON().then((users) => {
-  users.map((user) => {
-    select.options[select.options.length] = new Option(`${user.f_name} ${user.l_name}`, user.email);
+  //loop through the array of users
+  users.forEach((user) => {
+    //add each user to an option element
+    const currentUserHTML = `
+    <option value="${user.email}">
+      ${user.f_name} ${user.l_name}
+    </option>`;
+    //add each option element to the select list
+    userList.insertAdjacentHTML('beforeend', currentUserHTML);
   });
 });
 
-/* basically superflous function, added for clarity.  */
-function deleteUser(e) {
-  e.preventDefault();
+function deleteUser(event) {
+  //prevent default behavior of the submit button (reload page)
+  event.preventDefault();
+  //create user object from values in the form's input fields.
+  const user = {
+    email: userList.value
+  };
 
-  //call to api-function.
-  remove({ email: select.value });
-
-  location.reload();
+  //call the api-function "create" and pass along the user object.
+  remove(user)
+    .then((result) => {
+      //if all went well, redirect to read.html
+      window.location.href = '/read.html';
+    })
+    .catch((error) => {
+      //if something went wrong, print out the error.
+      console.log(error);
+    });
 }
