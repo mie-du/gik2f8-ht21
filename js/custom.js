@@ -41,19 +41,19 @@ const header_and_nav = `
 const body = document.querySelector('body');
 body.insertAdjacentHTML('afterbegin', header_and_nav);
 
-let create = document.querySelector('span.create');
-let read = document.querySelector('span.read');
-let update = document.querySelector('span.update');
-let del = document.querySelector('span.delete');
+let createLink = document.querySelector('span.create');
+let readLink = document.querySelector('span.read');
+let updateLink = document.querySelector('span.update');
+let deleteLink = document.querySelector('span.delete');
 
 if (currentURL == createURL) {
-  create.classList.add('clr-6');
+  createLink.classList.add('clr-6');
 } else if (currentURL == readURL) {
-  read.classList.add('clr-6');
+  readLink.classList.add('clr-6');
 } else if (currentURL == updateURL) {
-  update.classList.add('clr-6');
+  updateLink.classList.add('clr-6');
 } else if (currentURL == deleteURL) {
-  del.classList.add('clr-6');
+  deleteLink.classList.add('clr-6');
 } else {
   console.log("Well, what's up!?");
 }
